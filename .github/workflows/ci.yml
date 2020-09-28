@@ -11,6 +11,7 @@ jobs:
     env:
       OS_NAME: windows
       PLATFORM_TARGET: native_dyn
+      SSH_KEY: /tmp/id_rsa
     steps:
     - name: Checkout code
       uses: actions/checkout@v1
@@ -18,6 +19,11 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: '3.6'
+    - name: secret
+      shell: bash
+      run: |
+        echo "${{secrets.ssh_key}}" > $SSH_KEY
+        chmod 600 $SSH_KEY
     - name: Install packages
       run: |
         choco.exe install pkgconfiglite ninja
