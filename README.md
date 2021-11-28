@@ -19,7 +19,7 @@ them with your package manager. Continue to read the instructions
 otherwise.
 
 Before anything else you need to install Python3 related tools. On Debian
-based systems:
+based systems:-
 ```bash
 sudo apt-get install python3-pip virtualenv
 ```
